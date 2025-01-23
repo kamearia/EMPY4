@@ -28,6 +28,7 @@ Thumbs.db
 *.tlog
 *.iobj
 *.recipe
+*.sln
 #[Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
