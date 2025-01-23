@@ -18,14 +18,12 @@ Thumbs.db
 *.cache
 *.ilk
 *.log
-[Bb]in
 [Dd]ebug*/
 *.lib
 *.sbr
 *.exp
 *.json
 *.pyc
-*.pyd
 *.config
 *.tlog
 *.iobj
@@ -36,8 +34,6 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 mylittlengsolve/
-packages/
-EMSolBuildTemp/
 EMPY_COIL/
 EMPY_Solver/
 python/jupyter/
