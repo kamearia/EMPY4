@@ -2,7 +2,7 @@ from netgen.occ import *
 from ngsolve import *
 import math
 import sys
-sys.path.append(r'C:\EMSolution\EMSolPy3\bin\Release') 
+sys.path.append(r'..\..\bin\Release') 
 import EMPY_Field
 
 def toEM_Pnt(ng):

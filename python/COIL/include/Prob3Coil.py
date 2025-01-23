@@ -1,6 +1,6 @@
 from netgen.occ import *
 import sys
-sys.path.append(r'C:\EMSolution\EMSolPy3\python\COIL\include')
+sys.path.append(r'..\COIL\include')
 from EMPY_COIL import *
 
 def Prob3Coil():
