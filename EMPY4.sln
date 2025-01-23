@@ -1,0 +1,100 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EMPY_COIL", "EMPY_COIL\EMPY_COIL.vcxproj", "{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EMPY_Solver", "EMPY_Solver\EMPY_Solver.vcxproj", "{DA0B5762-1C0D-4FFF-A792-119C080B3948}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ソリューション項目", "ソリューション項目", "{8C6FF09B-326A-46FE-B7AA-ABE2E3CC4846}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Analysis", "python\Analysis.pyproj", "{05D04573-742D-43BA-AB4C-0D6626D0A317}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Intel_SSA|Any CPU = Intel_SSA|Any CPU
+		Intel_SSA|x64 = Intel_SSA|x64
+		Intel_SSA|x86 = Intel_SSA|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+		Template|Any CPU = Template|Any CPU
+		Template|x64 = Template|x64
+		Template|x86 = Template|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Debug|Any CPU.Build.0 = Debug|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Debug|x64.ActiveCfg = Debug|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Debug|x64.Build.0 = Debug|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Debug|x86.ActiveCfg = Debug|Win32
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Debug|x86.Build.0 = Debug|Win32
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Intel_SSA|Any CPU.ActiveCfg = Intel_SSA|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Intel_SSA|Any CPU.Build.0 = Intel_SSA|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Intel_SSA|x64.ActiveCfg = Intel_SSA|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Intel_SSA|x64.Build.0 = Intel_SSA|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Intel_SSA|x86.ActiveCfg = Intel_SSA|Win32
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Intel_SSA|x86.Build.0 = Intel_SSA|Win32
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Release|Any CPU.ActiveCfg = Release|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Release|Any CPU.Build.0 = Release|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Release|x64.ActiveCfg = Release|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Release|x64.Build.0 = Release|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Release|x86.ActiveCfg = Release|Win32
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Release|x86.Build.0 = Release|Win32
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Template|Any CPU.ActiveCfg = Template|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Template|Any CPU.Build.0 = Template|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Template|x64.ActiveCfg = Template|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Template|x64.Build.0 = Template|x64
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Template|x86.ActiveCfg = Template|Win32
+		{E972472E-55A5-408E-A8BF-CF1C5AA72D0A}.Template|x86.Build.0 = Template|Win32
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Debug|Any CPU.Build.0 = Debug|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Debug|x64.ActiveCfg = Debug|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Debug|x64.Build.0 = Debug|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Debug|x86.ActiveCfg = Debug|Win32
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Debug|x86.Build.0 = Debug|Win32
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Intel_SSA|Any CPU.ActiveCfg = Intel_SSA|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Intel_SSA|Any CPU.Build.0 = Intel_SSA|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Intel_SSA|x64.ActiveCfg = Intel_SSA|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Intel_SSA|x64.Build.0 = Intel_SSA|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Intel_SSA|x86.ActiveCfg = Intel_SSA|Win32
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Intel_SSA|x86.Build.0 = Intel_SSA|Win32
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Release|Any CPU.ActiveCfg = Release|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Release|Any CPU.Build.0 = Release|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Release|x64.ActiveCfg = Release|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Release|x64.Build.0 = Release|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Release|x86.ActiveCfg = Release|Win32
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Release|x86.Build.0 = Release|Win32
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Template|Any CPU.ActiveCfg = Template|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Template|Any CPU.Build.0 = Template|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Template|x64.ActiveCfg = Template|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Template|x64.Build.0 = Template|x64
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Template|x86.ActiveCfg = Template|Win32
+		{DA0B5762-1C0D-4FFF-A792-119C080B3948}.Template|x86.Build.0 = Template|Win32
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Intel_SSA|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Intel_SSA|x64.ActiveCfg = Debug|Any CPU
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Intel_SSA|x86.ActiveCfg = Debug|Any CPU
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Release|x64.ActiveCfg = Release|Any CPU
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Release|x86.ActiveCfg = Release|Any CPU
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Template|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Template|x64.ActiveCfg = Debug|Any CPU
+		{05D04573-742D-43BA-AB4C-0D6626D0A317}.Template|x86.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E2938EC-C957-4F1C-BF2A-42AED4764892}
+	EndGlobalSection
+EndGlobal
