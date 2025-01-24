@@ -1,6 +1,4 @@
 from ngsolve import *
-import sys
-sys.path.append('C:\EMSolution\EMSolPy3\python\include')
 from MatrixSolver import MatrixSolver as solver 
 def HtoOmega(mesh, boundary, feOrder, H):
     fesOmega = H1(mesh, order=feOrder, definedon=mesh.Boundaries(boundary), complex=False)
