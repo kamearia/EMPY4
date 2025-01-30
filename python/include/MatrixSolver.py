@@ -5,7 +5,7 @@ import os, sys
 import platform
 if platform.system() == 'Windows':
     #sys.path.append(r'C:\EMSolution\EMSolPy3\x64\Release') 
-    sys.path.append(r'C:\EMSolution\EMSolPy3\bin\Release') 
+    sys.path.append(r'C:\EMSolution\EMSolPy4\bin\Release') 
     import EMPY_Solver
 else:
     sys.path.append('/home/jupyter-ksugahar/ICCG/JP-MARs/SparseSolv')
@@ -15,7 +15,7 @@ class MatrixSolver:
     def __init__(self, matrix):
         self.mat=matrix
     
-    def AddCoupling(self,cvecs, amat):
+    def AddCoupling(self,cvecs, amat, ccomplex):
         matrix=self.mat
         dim=matrix.shape[0]
         #print("dim=", dim)
@@ -35,7 +35,11 @@ class MatrixSolver:
         sizep=size +non_zeros*2*nadd +nadd*nadd
         new_rows= np.zeros(sizep, dtype=int)
         new_cols= np.zeros(sizep, dtype=int)
-        new_vals= np.zeros(sizep)
+        if ccomplex==False:
+            new_vals= np.zeros(sizep)
+        else:
+             new_vals= np.zeros(sizep, dtype=complex)
+            
         for i in range(size):
             new_rows[i] =rows[i]
             new_cols[i] =cols[i]
@@ -85,12 +89,13 @@ class MatrixSolver:
     @classmethod
     def iccg_solve(cls,fes, gf, A, Bvec,  **kwargs):
         print("enter iccg_solve")
-        default_values = {"tol": 1.E-10, "accel_factor":1.1, "max_iter":1000, "complex":False}
+        default_values = {"tol": 1.E-10, "accel_factor":1.1, "max_iter":1000, "complex":False, "logplot":False}
         default_values.update(kwargs)
         tol=default_values["tol"]
         accel_factor=default_values["accel_factor"]
         max_iter=default_values["max_iter"]
         ccomplex=default_values["complex"]
+        logplot=default_values["logplot"]
     
         asci = sp.csr_matrix (A.mat.CSR())
         #    A=None
@@ -111,9 +116,9 @@ class MatrixSolver:
 
         if platform.system() == 'Windows':
             if ccomplex==True:
-                solver=EMPY_Solver.EMPY_CSolver('EMPYlog');
+                solver=EMPY_Solver.EMPY_CSolver();
             else:
-                solver=EMPY_Solver.EMPY_Solver('EMPYlog');
+                solver=EMPY_Solver.EMPY_Solver();
 
             #solver.Write(dim, len(rows), rows, cols, vals, fcut)
             solver.SetMatrix(dim, len(rows), rows, cols, vals)
@@ -125,7 +130,15 @@ class MatrixSolver:
             solver.SetEps(tol);
             solver.SetShiftParameter(accel_factor);
             solver.SetDivCriterion(10.,  10)
-            ucut=solver.Solve(fcut, ucut);
+            ucut=solver.Solve(fcut, ucut)
+            shift=solver.GetShiftParameter()
+            print("shift parameter=", shift)
+            log1 = solver.GetResidualLog()
+            #print(log1)
+            its=solver.GetMinimumResidual()
+            if len(log1) !=0: print("minimum residual=", min(log1), " at iteraions: ", its)
+
+            #print("log",log)
         else:
             if ccomplex==True: 
                 mat = SparseSolvPy.SparseMatC(len(rows), rows, cols, vals)
@@ -164,11 +177,13 @@ class MatrixSolver:
             solver.solveICCG_py(len(fcut), tol, max_iter, accel_factor, mat, fcut, ucut, True)
 
             log1 = solver.getResidualLog_py()
+
+        if logplot==True:
             plt.plot(range(len(log1)), log1)    
             plt.yscale('log')
             plt.show(block=False)
-            print("min:", min(log1))
-    
+        #print("min:", min(log1))
+
         np.array(gf.vec.FV(), copy=False)[fes.FreeDofs()] += ucut
     
         result = Acut.dot(ucut) - fcut 
@@ -182,7 +197,7 @@ class MatrixSolver:
         fcut=None
 
         #log1min.append(min(log1))
-        return gf#, power
+        return gf #, power
     
     @classmethod
     def SolveCoupled(cls, fes, A, c, a, f, g, **kwargs):
@@ -240,13 +255,14 @@ class MatrixSolver:
         return x, y
 
     @classmethod
-    def SolveCoupled2(cls, fes, A, c, a, f, g, **kwargs):
-        default_values = {"tol": 1.E-10, "accel_factor":1.1, "max_iter":1000, "complex":False}
+    def SolveCoupled2(cls, fes, A, c, a, f, g, **kwargs):            
+        default_values = {"tol": 1.E-10, "accel_factor":1.1, "max_iter":1000, "complex":False, "logplot":False}
         default_values.update(kwargs)
         tol=default_values["tol"]
         accel_factor=default_values["accel_factor"]
         max_iter=default_values["max_iter"]
         ccomplex=default_values["complex"]
+        logplot=default_values["logplot"]
 
         #nloop=len(c)
         asci = sp.csr_matrix (A.mat.CSR())
@@ -265,7 +281,7 @@ class MatrixSolver:
             cvecs.append(fcut)
         print("dim=", dim, "  nadd=", nadd)
         ms=MatrixSolver(Acut)
-        new_a=ms.AddCoupling(cvecs, a)
+        new_a=ms.AddCoupling(cvecs, a, ccomplex)
 
         rows, cols = new_a.nonzero()
         vals = new_a[rows, cols]
@@ -289,9 +305,9 @@ class MatrixSolver:
         
         if platform.system() == 'Windows': 
             if ccomplex==True:
-                solver=EMSolPy.EMPY_CSolver('C:\EMSolution\EMSolPy2\EMPY_Solver\jupyter\EMPYlog');
+                solver=EMPY_Solver.EMPY_CSolver();
             else:
-                solver=EMSolPy.EMPY_Solver('C:\EMSolution\EMSolPy2\EMPY_Solver\jupyter\EMPYlog');
+                solver=EMPY_Solver.EMPY_Solver();
            
             solver.SetMatrix(dim+nadd, len(rows), rows, cols, vals)
    
@@ -304,6 +320,16 @@ class MatrixSolver:
             solver.SetDivCriterion(10.,  10)
  
             u=solver.Solve(f, u);
+            shift=solver.GetShiftParameter()
+            print("shift parameter=", shift)
+            log1 = solver.GetResidualLog()
+            its=solver.GetMinimumResidual()
+            print("minimum residual=", min(log1), " at iteraions: ", its)
+            
+            if logplot==True:
+                plt.plot(range(len(log1)), log1)    
+                plt.yscale('log')
+                plt.show(block=False)
 
         else:
             if ccomplex==True: 
@@ -338,7 +364,10 @@ class MatrixSolver:
         mat=None
         #print("new_a=", new_a)
         #print("u=", u)
-        result = new_a.dot(np.array(u, dtype=float)) - f 
+        if ccomplex==False:
+            result = new_a.dot(np.array(u, dtype=float)) - f 
+        else:
+            result = new_a.dot(np.array(u, dtype=complex)) - f 
         #print("np.linalg.norm(result)=", np.linalg.norm(result))
         #print("np.linalg.norm(f)=",np.linalg.norm(f))
         norm = np.linalg.norm(result)/np.linalg.norm(f)

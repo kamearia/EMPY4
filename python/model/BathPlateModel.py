@@ -175,7 +175,7 @@ class BathPlateModel():
         conductor.maxh=wz/div_thick
         conductor.faces.name="conductorBND"
         if holes==0: conductor.mat("conductor")
-        d=10.e-3
+        d=7.5e-3
         total=Box((-wx/2-d,-wy/2-d,-wz/2-d),(wx/2+d,wy/2+d,wz/2+d))
         total.faces.name="totalBoundary"
         if outerBox=="box": outer=Box((-bx,-by,-bz),(bx,by,bz))

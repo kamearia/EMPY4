@@ -35,8 +35,7 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 mylittlengsolve/
-EMPY_COIL/
-EMPY_Solver/
+cpp/
 python/jupyter/
 python/COIL/.ipynb_checkpoints/
 python/COIL/include/.ipynb_checkpoints/
@@ -46,6 +45,8 @@ python/include/.ipynb_checkpoints/
 python/jupyter/.ipynb_checkpoints/
 python/Magnetostatic/.ipynb_checkpoints/
 python/model/.ipynb_checkpoints/
+python/.ipynb_checkpoints/
+
 
 
 !x64/Release/EMPY_Solver.pyd
